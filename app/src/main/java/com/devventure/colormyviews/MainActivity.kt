@@ -31,8 +31,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initBoxesArray()
-        colorBox()
-        setColor()
+        setupBox()
+        setupButtonColor()
         requestUserPermissions()
         configureSharedPref()
         configureBoxBackground()
@@ -46,15 +46,39 @@ class MainActivity : AppCompatActivity() {
         )
     }
 
-    private fun setColor() {
-        setColorsOnClick(binding.btnRed, R.color.red)
-        setColorsOnClick(binding.btnYellow, R.color.yellow)
-        setColorsOnClick(binding.btnGreen, R.color.green)
+    private fun setupButtonColor() {
+        binding.btnRed.setOnClickListener {
+            pincelColor = R.color.red
+        }
+        binding.btnYellow.setOnClickListener {
+            pincelColor = R.color.yellow
+        }
+        binding.btnGreen.setOnClickListener {
+            pincelColor = R.color.green
+        }
+
     }
 
-    private fun colorBox() {
-        boxes.forEach {
-            editor = setBackground(it, pincelColor, editor)
+    private fun setupBox() {
+        binding.boxOne.setOnClickListener {
+            it.setBackgroundResource(pincelColor)
+            editor.putInt(it.id.toString(), pincelColor)
+        }
+        binding.boxTwo.setOnClickListener {
+            it.setBackgroundResource(pincelColor)
+            editor.putInt(it.id.toString(), pincelColor)
+        }
+        binding.boxThree.setOnClickListener {
+            it.setBackgroundResource(pincelColor)
+            editor.putInt(it.id.toString(), pincelColor)
+        }
+        binding.boxFour.setOnClickListener {
+            it.setBackgroundResource(pincelColor)
+            editor.putInt(it.id.toString(), pincelColor)
+        }
+        binding.boxFive.setOnClickListener {
+            it.setBackgroundResource(pincelColor)
+            editor.putInt(it.id.toString(), pincelColor)
         }
     }
 
@@ -71,7 +95,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun getPermissionsList() : Array<String>{
+    private fun getPermissionsList(): Array<String> {
         val info: PackageInfo =
             packageManager.getPackageInfo(
                 applicationContext.packageName,
@@ -154,7 +178,8 @@ class MainActivity : AppCompatActivity() {
             if (shareIntent.resolveActivity(this) != null)
                 startActivity(Intent.createChooser(shareIntent, IMG_TITLE_CONST))
             else
-                Toast.makeText(applicationContext, IMG_TITLE_EXCEPTION_CONST, Toast.LENGTH_LONG).show()
+                Toast.makeText(applicationContext, IMG_TITLE_EXCEPTION_CONST, Toast.LENGTH_LONG)
+                    .show()
         }
     }
 

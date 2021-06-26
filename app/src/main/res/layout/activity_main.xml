@@ -9,7 +9,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/clBoxes"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:padding="@dimen/padding_small"
         app:layout_constraintBottom_toBottomOf="@id/horizontalGuide"
         app:layout_constraintEnd_toEndOf="parent"
@@ -41,7 +41,7 @@
             android:id="@+id/boxThree"
             style="@style/whiteBox"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_small"
             android:text="@string/box_three"
             app:layout_constraintBottom_toTopOf="@+id/boxFour"
@@ -54,7 +54,7 @@
             android:id="@+id/boxFour"
             style="@style/whiteBox"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_small"
             android:layout_marginBottom="@dimen/margin_small"
             android:text="@string/box_four"
@@ -67,7 +67,7 @@
             android:id="@+id/boxFive"
             style="@style/whiteBox"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:text="@string/box_five"
             app:layout_constraintBottom_toBottomOf="@+id/boxTwo"
             app:layout_constraintEnd_toEndOf="parent"
@@ -81,7 +81,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.3" />
+        app:layout_constraintGuide_begin="219dp" />
 
     <Button
         android:id="@+id/btn_red"
